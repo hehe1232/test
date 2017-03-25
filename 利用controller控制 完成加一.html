@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div ng-app='myApp' ng-controller='myCon'>
+    <input type="text" ng-model="val1" value=""/>
+    <input type="text" ng-model="val2" value=""/>
+    <input type="button" value='=' ng-click='add()'/>
+    <input type="text" ng-model="result" value=""/>
+    <p>
+        {{result}}
+    </p>
+</div>
+<script src='angular.js'></script>
+<script>
+    var app = angular.module('myApp',[]);
+    app.controller('myCon',function($scope){
+        $scope.add =function(){
+                   $scope.result = ($scope.val1-0)+($scope.val2-0);
+                }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div ng-app='myApp' ng-controller='myCon'>
+    <input type="text" ng-model="val"/>
+    <input type="button" value="+1" ng-click="add()"/>
+</div>
+
+<script src='angular.js'></script>
+<script>
+    var app = angular.module('myApp',[]);
+    app.controller('myCon',function($scope){
+        //对数据模型进行初始化
+        $scope.val=1;
+        //对$scope添加add方法，实现加一功能
+        $scope.add = function(){
+           $scope.val = ($scope.val-0)+1;
+        }
+        //对$scope添加$watch属性 实现对象数据模型的监听
+        //第一个参数是 $scope中的val值，第二个参数是callback
+        $scope.$watch('val',function(nval,oval){
+            console.log(nval);
+            console.log(oval);
+        })
+    })
+</script>
+</body>
+</html>
